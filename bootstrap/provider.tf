@@ -4,7 +4,7 @@ provider "aws" {
 
   default_tags {
     tags = {
-      Project   = Repone
+      Project   = "retail-inventory-app"
       ManagedBy = "terraform"
       Repo      = "retail-inventory-app-terraform"
     }

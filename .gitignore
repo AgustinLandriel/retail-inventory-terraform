@@ -1,0 +1,51 @@
+# ---- Terraform: cache local ----
+# Binarios de providers, cientos de MB, especificos de SO/arquitectura.
+# Se regenera con `terraform init`.
+**/.terraform/*
+.terraform/
+.terraform.tfstate.lock.info
+
+# El lock file SI va al repo: pinea version exacta y checksums del provider,
+# igual que package-lock.json. No lo ignores.
+!.terraform.lock.hcl
+
+# ---- Estado: vive en S3, nunca en el repo ----
+# Contiene ARNs, IDs y a veces secretos en texto plano.
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+
+# ---- Variables con valores sensibles ----
+*.tfvars
+*.tfvars.json
+!*.tfvars.example
+!terraform.tfvars
+# ---- Planes guardados (pueden incluir valores sensibles) ----
+*.tfplan
+tfplan
+plan.out
+
+# ---- Crash logs ----
+crash.log
+crash.*.log
+
+# ---- Overrides locales (no compartibles) ----
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# ---- Credenciales ----
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# ---- Editores / SO ----
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
